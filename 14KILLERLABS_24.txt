@@ -381,7 +381,7 @@ hostname R1
 int e1/2
 ip add 209.165.200.225 255.255.255.252
 int e1/3
-ip add 209.165.22.130 255.255.255.252
+ip add 209.165.202.129 255.255.255.252
 
 @r2/isp2: As120
 config t
@@ -397,7 +397,7 @@ hostname Isp3/R3
 int e1/2
 ip add 209.165.200.229 255.255.255.252
 int e1/3
-ip add 209.165.22.129 255.255.255.252
+ip add 209.165.202.130 255.255.255.252
 
 Tasks
 
@@ -419,9 +419,9 @@ interface e1/2
 interface e1/3
  ip address 209.165.202.130 255.255.255.252
  no shut
-!interface lo0
-! ip address 10.1.1.1 255.255.255.255
-!
+interface lo0
+ ip address 10.1.1.1 255.255.255.255
+
 router bgp 110
  bgp router-id 10.1.1.1
  neighbor 209.165.200.226 remote-as 120
@@ -1220,15 +1220,15 @@ vlan 101
 exit
 !
 interface e1/1
-switchport
-switchport trunk encapsulation dot1q
-switchport mode trunk
+!switchport
+!switchport trunk encapsulation dot1q
+!switchport mode trunk
 no shut
 !
 interface e1/0
-switchport
-switchport mode access
-switchport access vlan 101
+!switchport
+!switchport mode access
+!switchport access vlan 101
 no shut
 
 
